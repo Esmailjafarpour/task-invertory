@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
@@ -100,8 +104,112 @@ a {
   text-decoration: none;
 }
 
+.seramic:nth-child(1){
+  
+}
+.seramic:nth-child(2){
+  padding: 0 30px;
+}
+.seramic:nth-child(3){
+  
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+
+}
+
+@media screen and (max-width : 768px) {
+  .hiddenTypeShowCars{
+    display: none !important;
+  }
+
+  .search-button{
+   display: flex;
+  
+  }
+
+  .search-button>div{
+    width: 33.333%;
+  }
+
+  .selectForCompare{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .selectForCompare>div{
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .price-distance{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-distance .one {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+}
+
+@media screen and (max-width : 425px) {
+  .hiddenTypeShowCars{
+    display: none !important;
+  }
+
+  .search-button{
+   display: flex;
+   flex-direction: column;
+  
+  }
+
+  .search-button>div{
+    width: 100%;
+  }
+
+  .price-distance{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-distance .one {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+}
+
+@media screen and (max-width : 375px) {
+  .selectForCompare{
+    display: flex;
+    flex-direction: column !important;
+    justify-content: center;
+    align-items: center;
+  }
+  .selectForCompare>div{
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .sort ul li {
+    font-size: 12px;
+  }
+
+  .price-distance{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .price-distance .one {
+    display: flex;
+    justify-content: space-between;
   }
 }
