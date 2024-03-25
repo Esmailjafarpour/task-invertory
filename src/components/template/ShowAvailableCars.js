@@ -76,7 +76,7 @@ function ShowAvailableCars(props) {
 
 
   useEffect(() => {
-    console.log("page", page)
+    // console.log("page", page)
     const fetchData = async () => {
       const response = await fetch(
         `${BASE_URL}/api/dealership/advance/search/vehicles/localhost:3000?page=${page}&limit=20`,
@@ -115,7 +115,7 @@ function ShowAvailableCars(props) {
           }),
         })
         let data = await response.json();
-        console.log("data new",data)
+        // console.log("data new",data)
         SetAllCars([...allCars,...data])
     };
     fetchData()

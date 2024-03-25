@@ -1,10 +1,16 @@
-import Image from "next/image";
+// import Image from "next/image";
 import Button from "../module/Button";
-import { BASE_URL, BASE_URL_Images } from "../../../src/constants/base";
+import {
+  BASE_URL,
+  BASE_URL_Images,
+  BASE_URL_DETAILS,
+} from "../../../src/constants/base";
 import { sp } from "../../utils/replaceNumber";
+import { useRouter } from "next/navigation";
 
 const Card = (props) => {
   const { data, displayShow } = props;
+  const router = useRouter();
   // console.log("data", data);
   let src = `${BASE_URL_Images}${data.cover_image}`;
   let imageDefault = "/Images/default-inventory-image-car-med.png";
@@ -18,6 +24,12 @@ const Card = (props) => {
     data.Vehicle.drive_type +
     " " +
     data.Vehicle.body_style;
+
+  const detailCar = () => {
+    router.push(
+      `${BASE_URL_DETAILS}${data.Vehicle.model_year}-${data.Vehicle.make}-${data.Vehicle.model}-${data.id}`
+    );
+  };
 
   return (
     <>
@@ -71,7 +83,10 @@ const Card = (props) => {
               alt="image"
             /> */}
             {displayShow ? (
-              <button className="w-full bg-black text-center absolute bottom-[.01rem] bg-opacity-30 text-slate-300 h-[2.3rem]">
+              <button
+                onClick={() => detailCar()}
+                className="w-full bg-black text-center absolute bottom-[.01rem] bg-opacity-30 text-slate-300 h-[2.3rem]"
+              >
                 View Details
               </button>
             ) : null}
