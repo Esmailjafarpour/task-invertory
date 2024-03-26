@@ -70,7 +70,8 @@ const DetailCar = async () => {
       <div className="py-5">
         <Images imageData={imageData} />
 
-        <div className="flex relative">
+        <div className="flex">
+
           <div className="p-5 w-2/3">
             <h1 className="text-4xl py-2">
               {detailData.Vehicle.model_year} {detailData.Vehicle.make}{" "}
@@ -92,67 +93,67 @@ const DetailCar = async () => {
             <div className="grid grid-cols-12 gap-[4rem] justify-around px-3 my-5">
               <CardDetail
                 data={detailData.odometer}
-                carecter={"KM"}
+                character={"KM"}
                 name="Odometer"
                 imageName={"odometer"}
               />
               <CardDetail
                 data={detailData.Vehicle.model}
-                carecter={""}
+                character={""}
                 name="Body Style"
                 imageName={"bodyStyle"}
               />
               <CardDetail
                 data={detailData.Vehicle.engine_size}
-                carecter={"L"}
+                character={"L"}
                 name="Engin Size"
                 imageName={"enginsize"}
               />
               <CardDetail
                 data={detailData.Vehicle.engine_cylinders}
-                carecter={""}
+                character={""}
                 name="Engin Cylinders"
                 imageName={"engincylandler"}
               />
               <CardDetail
                 data={detailData.Vehicle.exterior_color.name}
-                carecter={""}
+                character={""}
                 name="Exterior Color"
                 imageName={"colorexterior"}
               />
               <CardDetail
                 data={detailData.Vehicle.Transmission.name}
-                carecter={""}
+                character={""}
                 name="Transmission"
                 imageName={"transmission"}
               />
               <CardDetail
                 data={detailData.Vehicle.interior_color.name}
-                carecter={""}
+                character={""}
                 imageName={"colorinterior"}
                 name="Colors"
               />
               <CardDetail
                 data={detailData.Vehicle.drive_type}
-                carecter={""}
+                character={""}
                 name="Drivetrain"
                 imageName={"drivenTrain"}
               />
               <CardDetail
                 data={detailData.Vehicle.doors}
-                carecter={""}
+                character={""}
                 name="Doors"
                 imageName={"bodyStyle"}
               />
               <CardDetail
                 data={detailData.Vehicle.fuel_type}
-                carecter={""}
+                character={""}
                 name="Fuel Type"
                 imageName={"fuel"}
               />
               <CardDetail
                 data={detailData.Vehicle.passenger}
-                carecter={""}
+                character={""}
                 name="Passenger"
                 imageName={"condition"}
               />
@@ -164,8 +165,8 @@ const DetailCar = async () => {
             </div>
           </div>
 
-          <div className="w-1/3 h-[30rem] px-3 block h-[60rem]">
-            <div className="w-11/12 bg-slate-50 rounded-lg shadow-lg sticky top-0 right-0 z-[1000]">
+          <div className="w-1/3 px-3 ">
+            <div className="w-11/12 bg-slate-50 rounded-lg shadow-lg py-5 sticky top-0 right-0 z-[1000]">
               <div className="text-center pt-5">
                 <h1 className=" font-bold text-4xl pt-5">
                   ${sp(detailData.sell_price)}
@@ -204,6 +205,7 @@ const DetailCar = async () => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
