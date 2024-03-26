@@ -108,6 +108,28 @@
 .logo {
   position: relative;
 }
+
+.custom-image-gallery {
+  max-width: 400px !important; /* حداکثر عرض گالری */
+}
+
+.custom-image-gallery .image-gallery-slide img {
+  max-width: 100%; /* اندازه تصاویر برای جلوگیری از خروج از حاشیه */
+  height: auto;
+  border: 2px solid #ccc; /* حاشیه دور تصاویر */
+  border-radius: 5px; /* گوشه‌های گرد تصاویر */
+}
+
+.custom-image-gallery .image-gallery-description {
+  background-color: rgba(0, 0, 0, 0.7); /* پس‌زمینه برای توضیحات */
+  color: #fff; /* رنگ متن توضیحات */
+}
+
+.image-gallery-svg, .image-gallery-right-nav .image-gallery-svg {
+  height: 45px !important;
+  width: 24px !important;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   .card:hover {

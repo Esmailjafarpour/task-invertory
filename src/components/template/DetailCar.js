@@ -1,12 +1,11 @@
 "use client";
-import { useState, useEffect } from "react";
+// import { useState } from "react";
 import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { usePathname, useSearchParams } from "next/navigation";
 import { sp } from "../../utils/replaceNumber";
-
 import {
   BASE_URL,
   BASE_URL_Images,
@@ -15,9 +14,16 @@ import {
 import { detailFunc, imageFunc } from "../../utils/detailFunc";
 import CardDetail from "../module/CardDetail";
 import Images from "../module/Images";
+import { IoCamera } from "react-icons/io5";
+import Imagegallery from "../template/Imagegallery";
+
 
 const DetailCar = async () => {
-  const [active, setActive] = useState(true);
+  // const [showModal, setShowModal] = useState(false);
+  // useEffect(() => {
+  //   console.log(showModal)
+  // }, [showModal]);
+
   const pathname = usePathname();
   const path = pathname.split("/").slice(2);
   const pathNew = path[0];
@@ -28,12 +34,13 @@ const DetailCar = async () => {
   const imageData = await imageFunc(pathNew);
   console.log("imageData", imageData);
 
-  const stripHTMLTags = (detailData) => {
-    return detailData.replace(/<[^>]*>/g, "");
-  };
+  // const stripHTMLTags = (detailData) => {
+  //   return detailData.replace(/<[^>]*>/g, "");
+  // };
 
   return (
     <div className="px-5 bg-white">
+      <Imagegallery  imagedata={imageData}/>
       <div className="flex-row justify-between px-[50px] max-[425px]:p-0 bg-white md:flex">
         <div className="w-200 w-1/3 max-[320px]:w-full">
           <div className="w-40 max-[320px]:mx-auto">
@@ -68,7 +75,12 @@ const DetailCar = async () => {
       </div>
 
       <div className="py-5">
-        <Images imageData={imageData} />
+        <div className="relative">
+          <button onClick={()=>setShowModal(true)} className="flex items-center justify-between w-34 rounded bottom-3 right-3 bg-amber-500 text-gray-50 text-base p-3 absolute max-[320px]:hidden max-[375px]:hidden max-[425px]:hidden">
+            <IoCamera/>View photos
+          </button>
+          <Images imageData={imageData} />
+        </div>
 
         <div className="flex max-[320px]:flex-col max-[375px]:flex-col max-[425px]:flex-col max-[768px]:flex-col">
           <div className="p-5 w-2/3  min-[375px]:w-full min-[320px]:w-full">
