@@ -38,7 +38,7 @@ const DetailCarMain = ({ detailData, imageData }) => {
 
       <Modal isOpen={modalIsOpen} onRequestClose={closeModal} className="modal">
         <Imagegallery imagedata={imageData} />
-        <button onClick={closeModal}><IoClose/></button>
+        <button className="closeimage" onClick={closeModal}><IoClose/></button>
       </Modal>
 
       <div className="flex-row justify-between px-[50px] max-[425px]:p-0 bg-white md:flex">
