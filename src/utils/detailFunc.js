@@ -11,10 +11,11 @@ const detailFunc = async (pathNew) => {
 };
 
 const imageFunc = async (pathNew) => {
-
+  console.log("Error while ",`${BASE_URL}/api/vehicle/dealership/media/mid/all/localhost:3000/${pathNew}` )
+  
   const res2 = await fetch( 
     `${BASE_URL}/api/vehicle/dealership/media/mid/all/localhost:3000/${pathNew}` 
-  ); 
+  )
   const image = await res2.json();
   
   return image;

@@ -10,7 +10,10 @@ import {
 const Imagegallery = ({ imagedata }) => {
   let images = [];
   imagedata.map((image) =>
-    images.push({ original: `${BASE_URL_Images}${image.media_src}` })
+    images.push({ original: `${BASE_URL_Images}${image.media_src}`,
+    thumbnail: `${BASE_URL_Images}${image.media_src}`,
+    originalHeight: "720px",
+    originalWidth: "520px", })
   );
   return (
     <div className="custom-image-gallery">

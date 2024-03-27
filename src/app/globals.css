@@ -114,6 +114,15 @@ a {
   
 }
 
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  max-height: calc(75vh - 80px) !important;
+}
+
+.modal{
+  background-color: #1d1d1d !important;
+  margin-top: 50px;
+}
+
 .button-details-active{
   background-color: rgb(255, 187, 1);
   color: rgb(255, 255, 255);
