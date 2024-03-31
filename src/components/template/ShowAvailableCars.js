@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Card from "../module/Card";
 import { MdApps } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
+import fetchDataCars from "../../utils/fetchDataCars";
 
 //infinite scroll
 import { BASE_URL } from "../../constants/base";
@@ -13,7 +14,7 @@ function ShowAvailableCars(props) {
   const currentYear = new Date().getFullYear() + 1;
   const { resultCars } = props;
   const [displayShow, SetDisplayShow] = useState(true);
-  const [allCars, SetAllCars] = useState([]);
+  const [allCars, SetAllCars] = useState(resultCars);
   const [page, SetPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
@@ -68,13 +69,6 @@ function ShowAvailableCars(props) {
     return result;
   };
 
-
-  useEffect(() => {
-    SetAllCars(resultCars);
-  }, [resultCars]);
-
-
-
   useEffect(() => {
     // console.log("page", page)
     const fetchData = async () => {
@@ -119,9 +113,24 @@ function ShowAvailableCars(props) {
         SetAllCars([...allCars,...data])
     };
     fetchData()
+   
   }, [hasMore , page]);
 
   
+
+
+  // useEffect(() => {
+  //   console.log("resultCars",resultCars)
+  //   SetAllCars(resultCars);
+  // }, [resultCars]);
+
+  // useEffect(() => {
+  //     let res = fetchDataCars(page)
+  //     setTimeout(console.log("eeeee",res),2000)
+  //     // SetAllCars([...allCars,...res])
+      
+  // },[page])
+
 
   return (
     <div className="px-3 py-4 m-4">
@@ -194,7 +203,7 @@ function ShowAvailableCars(props) {
         <InfiniteScroll
           dataLength={allCars.length}
           next={() => {
-            fetchData();
+            fetchDataCars(page);
             SetPage(page + 1);
           }}
           hasMore={hasMore}

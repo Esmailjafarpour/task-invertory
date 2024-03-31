@@ -1,6 +1,6 @@
 const CardDetail = ({data ,name , character ,imageName}) => {
   return (
-    <div className="grid col-span-4 max-[425px]:col-span-1 border bg-white h-36">
+    <div className="grid col-span-4 w-[170px] max-[425px]:col-span-1 border bg-white h-36">
       <div className="flex justify-center py-3">
         <img src={`/images/${imageName}.png`} />
       </div>

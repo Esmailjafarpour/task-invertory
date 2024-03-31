@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BASE_URL } from "../../constants/base";
 

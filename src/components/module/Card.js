@@ -47,7 +47,7 @@ const Card = (props) => {
               : "w-3/12"
           }
         >
-          <div className="relative overflow-hidden rounded-lg ">
+          <div className="relative overflow-hidden rounded-lg cursor-pointer" onClick={() => detailCar()}>
             {data.cover_image !== null ? (
               <img
                 className={
@@ -84,7 +84,7 @@ const Card = (props) => {
             /> */}
             {displayShow ? (
               <button
-                onClick={() => detailCar()}
+                // onClick={() => detailCar()}
                 className="w-full bg-black text-center absolute bottom-[.01rem] bg-opacity-30 text-slate-300 h-[2.3rem]"
               >
                 View Details
@@ -144,7 +144,7 @@ const Card = (props) => {
             <span>{sp(data.odometer)} km</span>
           </div>
 
-          {displayShow ? <hr class="my-1 bg-gray-950 border-1"></hr> : null}
+          {displayShow ? <hr className="my-1 bg-gray-950 border-1"></hr> : null}
 
           <div className={!displayShow ? "grid grid grid-cols-6 gap-4" : ""}>
             <div

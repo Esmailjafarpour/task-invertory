@@ -4,7 +4,7 @@ import Link from "next/link";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
-import { usePathname, useSearchParams } from "next/navigation";
+// import { usePathname, useSearchParams } from "next/navigation";
 import { sp } from "../../utils/replaceNumber";
 import CardDetail from "../module/CardDetail";
 import Images from "../module/Images";
@@ -86,15 +86,15 @@ const DetailCarMain = ({ detailData, imageData }) => {
           <Images imageData={imageData} />
         </div>
 
-        <div className="flex max-[320px]:flex-col max-[375px]:flex-col max-[425px]:flex-col max-[768px]:flex-col">
-          <div className="p-5 w-2/3  min-[375px]:w-full min-[320px]:w-full">
+        <div className="flex w-full max-[320px]:flex-col max-[375px]:flex-col max-[425px]:flex-col max-[768px]:flex-col">
+          <div className=" p-5 w-[65%] max-[375px]:w-full ">
             <h1 className="text-4xl py-2 min-[375px]:text-2xl min-[320px]:text-base">
-              {detailData.Vehicle.model_year} {detailData.Vehicle.make}{" "}
-              {detailData.Vehicle.model} {detailData.Vehicle.BodyStyle.name}
+              {detailData.Vehicle?.model_year} {detailData.Vehicle?.make}{" "}
+              {detailData.Vehicle?.model} {detailData.Vehicle.BodyStyle?.name}
             </h1>
             <div className="grid py-3 grid-cols-2 max-[425px]:grid-cols-1 max-[375px]:grid-cols-1">
               <span className="grid col-span-1">
-                VIN : {detailData.Vehicle.vin_number}
+                VIN : {detailData.Vehicle?.vin_number}
               </span>
               <span className="grid col-span-1">
                 Stock# : {detailData.Vehicle.id}
@@ -113,61 +113,61 @@ const DetailCarMain = ({ detailData, imageData }) => {
                 imageName={"odometer"}
               />
               <CardDetail
-                data={detailData.Vehicle.model}
+                data={detailData.Vehicle?.model}
                 character={""}
                 name="Body Style"
                 imageName={"bodyStyle"}
               />
               <CardDetail
-                data={detailData.Vehicle.engine_size}
+                data={detailData.Vehicle?.engine_size}
                 character={"L"}
                 name="Engin Size"
                 imageName={"enginsize"}
               />
               <CardDetail
-                data={detailData.Vehicle.engine_cylinders}
+                data={detailData.Vehicle?.engine_cylinders}
                 character={""}
                 name="Engin Cylinders"
                 imageName={"engincylandler"}
               />
               <CardDetail
-                data={detailData.Vehicle.exterior_color.name}
+                data={detailData.Vehicle.exterior_color?.name}
                 character={""}
                 name="Exterior Color"
                 imageName={"colorexterior"}
               />
               <CardDetail
-                data={detailData.Vehicle.Transmission.name}
+                data={detailData.Vehicle.Transmission?.name}
                 character={""}
                 name="Transmission"
                 imageName={"transmission"}
               />
               <CardDetail
-                data={detailData.Vehicle.interior_color.name}
+                data={detailData.Vehicle.interior_color?.name}
                 character={""}
                 imageName={"colorinterior"}
                 name="Colors"
               />
               <CardDetail
-                data={detailData.Vehicle.drive_type}
+                data={detailData.Vehicle?.drive_type}
                 character={""}
                 name="Drivetrain"
                 imageName={"drivenTrain"}
               />
               <CardDetail
-                data={detailData.Vehicle.doors}
+                data={detailData.Vehicle?.doors}
                 character={""}
                 name="Doors"
                 imageName={"bodyStyle"}
               />
               <CardDetail
-                data={detailData.Vehicle.fuel_type}
+                data={detailData.Vehicle?.fuel_type}
                 character={""}
                 name="Fuel Type"
                 imageName={"fuel"}
               />
               <CardDetail
-                data={detailData.Vehicle.passenger}
+                data={detailData.Vehicle?.passenger}
                 character={""}
                 name="Passenger"
                 imageName={"condition"}
@@ -176,11 +176,11 @@ const DetailCarMain = ({ detailData, imageData }) => {
 
             <div>
               <h1 className="text-2xl py-2 font-bold">Description</h1>
-              <div dangerouslySetInnerHTML={{ __html: detailData.comment }} />
+              <div dangerouslySetInnerHTML={{ __html: detailData?.comment }} />
             </div>
           </div>
 
-          <div className="w-1/3 px-3 max-[320px]:w-full max-[375px]:w-full max-[425px]:w-full max-[768px]:w-full">
+          <div className="w-[35%] px-3 max-[320px]:w-full max-[375px]:w-full max-[425px]:w-full max-[768px]:w-full">
             <div className="w-11/12 max-[320px]:w-full max-[375px]:w-full max-[425px]:w-full bg-slate-50 rounded-lg shadow-lg py-5 sticky top-0 right-0  max-[320px]:relative">
               <div className="text-center pt-5">
                 <h1 className=" font-bold text-4xl pt-5 max-[1024px]:text-2xl">
@@ -220,6 +220,7 @@ const DetailCarMain = ({ detailData, imageData }) => {
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
